@@ -12,7 +12,7 @@ module ChatSpace
       g.javascript false
       g.stylesheets false
       g.helper false
-      g.template_engine = :slim
+      g.template_engine = :haml
       g.test_framework :rspec,
         fixture: true,
         view_specs: false,
