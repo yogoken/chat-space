@@ -16,6 +16,20 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry-rails'
   gem 'pry-byebug'
+
+  # test
+  gem 'autodoc'
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
+  gem 'poltergeist'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'rspec-request_describer'
+  gem 'guard-rspec'
+  gem 'rspec-power_assert'
+  gem 'faker'
 end
 
 group :development do
@@ -25,7 +39,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'spring-commands-rspec'
-
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
