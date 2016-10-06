@@ -49,7 +49,6 @@ gem 'rails-erd'
 
 # uploader
 gem 'carrierwave'
-gem 'rmagick'
 
 # pagination
 gem 'kaminari'
