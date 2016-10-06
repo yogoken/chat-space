@@ -6,6 +6,14 @@ ChatSpace
 - `Message`モデル、`messages`テーブル追加
 - `/messages`にアクセスできる
 
+## `step/02-messages`
+
+- メッセージ投稿
+- `Message`モデルにバリデーション設定
+- Rspecインストール
+  - `bundle exec rails g rspec:install`
+  - `bundle exec rspec`
+- locale設定によるエラーメッセージの日本語化
 
 ## 実装のフロー
 1. チャット画面のコーディング
