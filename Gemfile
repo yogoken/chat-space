@@ -24,7 +24,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem "factory_girl_rails"
   gem 'poltergeist'
-  gem 'rspec-rails'
+  gem 'rspec-rails', "~> 3.1.0"
   gem 'shoulda-matchers'
   gem 'rspec-request_describer'
   gem 'guard-rspec'
@@ -33,7 +33,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console'
+  gem 'web-console', '~> 2.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
