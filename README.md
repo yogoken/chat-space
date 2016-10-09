@@ -1,14 +1,13 @@
 ## サービス名
 ChatSpace
 
-### `step/01-markup`
-- スタイル追加
+### markup
+- デザイン追加
 - `Message`モデル、`messages`テーブル追加
-- `/messages`にアクセスできる
+- `/messages`にアクセス
 
-## `step/02-messages`
-
-- メッセージ投稿
+## messages
+- createアクションでメッセージ投稿
 - `Message`モデルにバリデーション設定
 - Rspecインストール
   - `bundle exec rails g rspec:install`
@@ -103,21 +102,4 @@ ChatSpace
 - 関連
   - `belongs_to :chat_group`
   - `belongs_to :user`
-
-
-
-## URL仕様
-
-| method | URL | controller | view | 概要 |
-|---|---|---|---|---|
-| GET | / | ChatGroupsController#index | 必要 | チャットグループ一覧 |
-| GET | /users/sign_up | (Deviseに従う) | 必要 | サインアップページ |
-| GET | /users/sign_in | (Deviseに従う) | 必要 | ログインページ |
-| GET | /chat_groups | ChatGroupsController#index | 必要 | チャットグループ一覧 |
-| GET | /chat_groups/new | ChatGroupsController#new | 必要 | チャットグループ作成 |
-| POST | /chat_groups | ChatGroupsController#create | 不要 | チャットグループ作成 |
-| GET | /chat_groups/:chat_group_id/edit | ChatGroupsController#edit | 必要(newと共通化) | チャットグループ編集 |
-| PATCH | /chat_groups/:chat_group_id | ChatGroupsController#update | 不要 | チャットグループ更新 |
-| GET | /chat_groups/:chat_group_id/messages | MessagesController#index | 必要 | チャットページ |
-| POST | /chat_groups/:chat_group_id/messages | MessagesController#create | 不要 | チャット投稿 |
 
