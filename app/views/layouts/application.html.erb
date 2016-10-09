@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if notice %><p class="layout-notice"><%= notice %></p><% end %>
+    <% if alert %><p class="layout-alert"><%= alert %></p><% end %>
+
+    <div class="layout-notification">
+      <%= yield %>
+    </div>
   </body>
 </html>
