@@ -54,3 +54,4 @@ gem 'carrierwave'
 
 # pagination
 gem 'kaminari'
+gem 'erb2haml'
