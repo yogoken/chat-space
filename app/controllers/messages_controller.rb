@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @message.user = current_user
     @messages = Message.all
     if @message.save
       redirect_to messages_path, notice: 'Successfully posted'
