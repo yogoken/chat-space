@@ -41,6 +41,9 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'guard-rspec', require: false # guardでrspecを動かす
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'  # デスクトップ通知を行う
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
