@@ -8,8 +8,9 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @messages = Message.all
     if @message.save
-      redirect_to messages_path, notice: 'return message successfully'
-      flash.now[:alert] = @message.errors.full_messages.join(',' )
+      redirect_to messages_path, notice: 'Successfully posted'
+    else
+      flash.now[:alert] = @message.errors.full_messages.join(', ')
       render :index
     end
   end
