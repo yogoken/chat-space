@@ -1,18 +1,43 @@
 ## サービス名
 ChatSpace
 
-### markup
+### 01 DB設計をする
 - デザイン追加
 - `Message`モデル、`messages`テーブル追加
 - `/messages`にアクセス
 
-## messages
+### 02 messagesを投稿できるようにする
 - createアクションでメッセージ投稿
 - `Message`モデルにバリデーション設定
 - Rspecインストール
   - `bundle exec rails g rspec:install`
   - `bundle exec rspec`
 - locale設定によるエラーメッセージの日本語化
+
+
+### 03 login機能を作る
+- gem 'devise'のインストール
+- messagesのuserへデザインを適用(user.scss)
+
+### 04 chat_groupを作る
+- `ChatGroup`, `ChatGroupUser`モデル追加
+- ChatGroupの追加・更新
+- `side_menu`の共通化
+
+### 05 incremental_searchでuserを自動で検索する
+- jQuery導入
+- ChatGroup作成時にincremental search
+
+### 06 async_messagesにする
+- メッセージ投稿の非同期か
+
+### 07 image_upload
+- 画像投稿
+- `carrerwave`導入
+
+### 08 auto_reload
+- 自動再読み込み
+
 
 ## 実装のフロー
 1. チャット画面のコーディング

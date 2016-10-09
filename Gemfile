@@ -22,7 +22,7 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-email'
   gem 'database_cleaner'
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
@@ -41,6 +41,9 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'guard-rspec', require: false # guardでrspecを動かす
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'  # デスクトップ通知を行う
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -54,3 +57,6 @@ gem 'carrierwave'
 
 # pagination
 gem 'kaminari'
+
+gem 'erb2haml'
+gem 'devise'
