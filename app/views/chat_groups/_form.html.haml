@@ -1,0 +1,26 @@
+= form_for @chat_group do |f|
+  - if @chat_group.errors.any?
+    .chat-group-form__errors
+      %h2= "#{pluralize(@chat_group.errors.count, "error")} prohibited this chat_group from being saved:"
+      %ul
+        - @chat_group.errors.full_messages.each do |msg|
+          %li= msg
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, 'グループ名', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      = f.text_field :name, class: 'chat-group-form__input', placeholder: 'グループ名を入力してください'
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label 'チャットメンバー', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        = f.collection_check_boxes :user_ids, User.all, :id, :name
+
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit 'Save', class: 'chat-group-form__action-btn'

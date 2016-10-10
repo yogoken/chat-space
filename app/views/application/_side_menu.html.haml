@@ -1,0 +1,19 @@
+.chat-user.clearfix
+  %h5= current_user.name
+  .chat-user__actions
+    %a.chat-user__action{ href: new_chat_group_path }
+      %i.fa.fa-pencil-square-o
+    %a.chat-user__action{ href: edit_user_registration_path }
+      %i.fa.fa-cog
+
+%ul.chat-groups
+  - current_user.chat_groups.each do |chat_group|
+
+    %li.chat-group
+      %a.chat-group__link{ href: chat_group_messages_path(chat_group) }
+        %p.chat-group__name= chat_group.name
+        %p.chat-group__message
+          - if last_message = chat_group.messages.last
+            = last_message.body
+          - else
+            まだメッセージはありません。
