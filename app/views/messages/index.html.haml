@@ -1,34 +1,39 @@
 .chat
   .chat-side
-    .chat-user.clearfix
-      %p= current_user.name
-      .chat-user__actions
-        %a.chat-user__action{ href: edit_user_registration_path }
-          %i.fa.fa-cog
+    = render partial: 'side_menu'
 
   .chat-main
     .chat-header.clearfix
       .chat-header--left
-        %h2 チャットグループ名
+        %h2= @chat_group.name
         %p.chat-header__users
-          Members: メンバー
+          Members:
+          - @chat_group.users.each do |user|
+            %span.chat-header__user= user.name
+
+      .chat-header--right
+        %a.chat-header__edit-btn{ href: edit_chat_group_path(@chat_group) } Edit
 
     .chat-body
       %ul.chat-messages
-        - @messages.each do |message|
+        - @chat_group.messages.each do |message|
           %li.chat-message
             .chat-message__header.clearfix
               %p.chat-message__name
                 = message.user.name
               %p.chat-message__time
-                = message.created_at
-              %p.chat-message__body
-                = message.body
+                = l(message.created_at)
+            %p.chat-message__body
+              = message.body
 
     .chat-footer
-      = form_for @message do |f|
+      = form_for [@chat_group, @message], class: 'clearfix' do |f|
+
         .chat-footer__body
           = f.text_area :body, row: 1, placeholder: 'type a message'
+
           %label.chat-footer__file
             = f.file_field :image
+            %i.fa.fa-image
+
         = f.submit 'Send'

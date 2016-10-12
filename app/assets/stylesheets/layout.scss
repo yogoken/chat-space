@@ -53,3 +53,9 @@ a {
   display: block;
   clear: both;
 }
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
