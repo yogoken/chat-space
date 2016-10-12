@@ -14,11 +14,23 @@
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label 'チャットメンバー', class: 'chat-group-form__label'
+      = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.collection_check_boxes :user_ids, User.all, :id, :name
+        %input#user_search-field.chat-group-form__input{ type: 'text', placeholder: '追加したいユーザーを入力してください' }
+      #user-search-result
 
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label 'チャトメンバー', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      #chat-group-users
+        - @chat_group.users.each do |user|
+          .chat-group-user.clearfix{ id: "chat-group-user-#{user.id}" }
+            %input{ type: 'hidden', name: "chat_group[user_ids][]", value: user.id }
+            %p.chat-group-user__name= user.name
+            - unless user.id == current_user.id
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove{ 'data-user-id': user.id } 削除
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
