@@ -18,6 +18,25 @@ class MessagesController < ApplicationController
       flash.now[:alert] = @message.errors.full_messages.join(', ')
       render :index
     end
+
+    respond_to do |format|
+      if @message.save
+        format.html do
+          redirect_to chat_group_messages_path(@chat_group), notice: 'メッセージを送信しました'
+        end
+        format.json do
+          render json: @message.to_api_json
+        end
+      else
+        format.html do
+          flash.now[:alert] = @message.errors.full_messages.join(', ')
+          render :index
+        end
+        format.json do
+          render json: @message.errors, status: :unprocessable_entity
+        end
+      end
+    end
   end
 
   private
