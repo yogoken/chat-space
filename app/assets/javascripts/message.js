@@ -6,6 +6,11 @@ $(function(){
     }
   });
 
+  // ファイル添付時にメッセージ自動送信
+  $('#message_image').on('change', function(){
+    $(this).parents('form#new_message').submit();
+  });
+
   // 自動スクロール
   function scrollToBottom() {
     $('.chat-body').scrollTop( $('.chat-messages').height() );
@@ -13,6 +18,12 @@ $(function(){
 
   // メッセージのHTMLを組み立て
   function buildMessageHTML(message) {
+    if (message.image_url) {
+      var insertImage = '<br><img src="' + message.image_url + '">'
+    } else {
+      var insertImage = '';
+    }
+
     var html =
       '<li class="chat-message">' +
       '<div class="chat-message__header clearfix">' +
@@ -25,6 +36,7 @@ $(function(){
       '</div>' +
       '<p class="chat-message__body">' +
       message.body +
+      insertImage +
       '</p>' +
       '</li>';
     return html
