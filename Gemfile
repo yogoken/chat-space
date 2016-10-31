@@ -59,3 +59,4 @@ gem 'kaminari'
 
 gem 'erb2haml'
 gem 'devise'
+gem 'carrierwave'

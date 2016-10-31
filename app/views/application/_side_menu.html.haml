@@ -14,6 +14,9 @@
         %p.chat-group__name= chat_group.name
         %p.chat-group__message
           - if last_message = chat_group.messages.last
-            = last_message.body
+            - if last_message.image?
+              画像を送信しました。
+            - else
+              = last_message.body
           - else
             まだメッセージはありません。
