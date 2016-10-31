@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'nokogiri'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
   gem 'bullet'
   gem 'awesome_print'
   gem 'pry-rails'
