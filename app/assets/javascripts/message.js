@@ -59,4 +59,27 @@ $(function(){
       }
     });
   });
+
+  if (document.location.href.match(/\/chat_groups\/\d+\/messages/)) {
+    setInterval(function(){
+      $.ajax(document.location.href + '.json', {
+        method: 'GET',
+        dataType: 'json',
+        success: function(json) {
+
+          var insertHTML = '';
+          json.forEach(function(message){
+            insertHTML += buildMessageHTML(message);
+          });
+
+          $('ul.chat-messages').html(insertHTML);
+
+          scrollToBottom();
+        },
+        error: function(json) {
+          alert('エラーが発生しました');
+        }
+      });
+    }, 10 * 1000);
+  }
 });
