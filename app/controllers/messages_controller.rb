@@ -5,6 +5,11 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @chat_group.messages
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @chat_group.messages.includes(:user).map(&:to_api_json) }
+    end
   end
 
   def create
